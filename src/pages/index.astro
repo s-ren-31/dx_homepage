@@ -1,17 +1,184 @@
 ---
-
+// src/pages/index.astro
+import '../styles/global.css'; // これを追加！
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>東京理科大学 DX倶楽部 新歓サイト2025</title>
+  </head>
+  <body>
+    <div class="container" id="home">
+      
+      <div class="header-section">
+        <div class="logo-box">
+          <img src="/DX倶楽部_透過画像.png" alt="DX倶楽部 ロゴ" class="tus-logo" />
+        </div>
+        <div class="university-tag">DX倶楽部</div>
+      </div>
+
+      <h1 class="main-title">DX倶楽部へようこそ！</h1>
+      
+      <p class="intro-text">
+        <strong>東京理科大学 公認サークル</strong><br>
+        神楽坂・富士見キャンパスを中心に、デジタルで学生生活を面白く。<br>
+        私たちと一緒に、学部を越えた仲間と挑戦しませんか？
+      </p>
+
+      <div class="image-box">
+        <img src="/club-activity.jpg" alt="理科大での活動風景" />
+      </div>
+
+      <div id="activities" class="features">
+        <div class="card">
+          <div class="icon">🎥</div>
+          <h3>Movie</h3>
+          <p>企業コンテスト向けの動画制作やYouTube発信を行っています。</p>
+		  <a href="https://www.youtube.com/@DX%E5%80%B6%E6%A5%BD%E9%83%A8" target="_blank" class="video-link">
+            実際の制作動画を見る →
+          </a>
+        </div>
+        <div class="card">
+          <div class="icon">💻</div>
+          <h3>Tech</h3>
+          <p>Web制作やプログラミング勉強会。初心者も大歓迎です！</p>
+        </div>
+      </div>
+
+      <section class="schedule">
+        <h2 class="section-title">Schedule</h2>
+        <div class="schedule-card">
+          <p>📅 <strong>毎週月曜日 18:00〜20:00</strong></p>
+          <p>📍 <strong>神楽坂キャンパス または 富士見校舎</strong></p>
+          <div class="schedule-desc">
+            C#の勉強からシステム開発、動画編集、HP制作まで幅広く活動中！<br>
+            理科大の忙しい授業とも両立しやすい環境です。
+          </div>
+        </div>
+      </section>
+
+      <section class="message">
+        <h2 class="section-title">Member's Voice</h2>
+        <div class="message-box">
+          <p>「経営学部の僕も、最初はコードなんて1行も書けませんでした。でも、DX倶楽部で仲間と学ぶうちに、短期間でこのサイトを作れるまでになりました。一緒に成長しましょう！」</p>
+        </div>
+      </section>
+      
+      <div class="button-group">
+        <a href="#activities" class="btn-primary">活動内容を見る</a>
+        <a href="https://www.instagram.com/tus_dxclub/" class="btn-primary" target="_blank" rel="noopener noreferrer">Instagramはこちら</a>
+      </div>
+
+      <div class="footer-link">
+        <a href="#home">↑ ページトップへ戻る</a>
+      </div>
+    </div>
+  </body>
 </html>
+
+<style>
+  /* 0. スルスル動く設定 */
+  html { scroll-behavior: smooth; }
+
+  /* 1. 背景：動くグラデーション */
+  body {
+    margin: 0; padding: 0; min-height: 100vh;
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex; justify-content: center; align-items: flex-start;
+  }
+
+  .container { max-width: 900px; width: 95%; text-align: center; padding: 6rem 1rem; }
+
+  /* 2. ヘッダー・ロゴのデザイン */
+  .header-section {
+    display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .tus-logo {
+    height: 80px; width: auto; margin-bottom: 1rem;
+    /* ロゴが黒い場合は、下の行の「/*」を消して有効にしてください */
+    /* filter: brightness(0) invert(1); */
+  }
+
+  .university-tag {
+    font-size: 0.9rem; letter-spacing: 0.3rem; color: #818cf8;
+    text-transform: uppercase; font-weight: bold;
+  }
+
+  /* 3. タイトル・テキスト */
+  .main-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem; font-weight: 800;
+  }
+
+  .intro-text { font-size: 1.1rem; color: #cbd5e1; margin-bottom: 3rem; line-height: 1.8; }
+  .intro-text strong { color: #38bdf8; font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
+
+  /* 4. 画像とカード */
+  .image-box img { width: 100%; max-width: 750px; border-radius: 20px; margin-bottom: 4rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+  .features { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 5rem; padding-top: 4rem; }
+  .card { 
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; 
+    flex: 1; min-width: 300px; transition: 0.3s ease; 
+  }
+  .card:hover { transform: translateY(-10px); border-color: #38bdf8; }
+  .icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  /* 5. 各セクションのデザイン */
+  .section-title { font-size: 2.2rem; margin-bottom: 2rem; color: #38bdf8; }
+  .schedule-card, .message-box { 
+    background: rgba(255, 255, 255, 0.03); border-radius: 20px; 
+    padding: 2.5rem; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 5rem; 
+  }
+  .schedule-desc { color: #94a3b8; margin-top: 1.5rem; font-size: 1rem; }
+
+  /* 6. ボタン */
+  .button-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { 
+    display: inline-block; padding: 1.2rem 2.8rem; background: #38bdf8; 
+    color: #0f172a; text-decoration: none; border-radius: 50px; font-weight: bold; 
+    transition: 0.3s; 
+  }
+  .btn-primary:hover { transform: scale(1.05); background: #7dd3fc; }
+
+  .footer-link { margin-top: 4rem; }
+  .footer-link a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+
+  /* 7. アニメーション定義 */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  ```css
+  .video-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+  }
+  .video-link:hover {
+    border-bottom-color: #38bdf8;
+    opacity: 0.8;
+  }
+</style>

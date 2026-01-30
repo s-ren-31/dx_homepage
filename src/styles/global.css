@@ -1,0 +1,41 @@
+/* src/styles/global.css */
+
+/* ページ全体の基本設定 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* 動く背景グラデーション */
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 背景のアニメーション定義 */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 共通のボタンデザイン（どこでも使えるように） */
+.btn-primary { 
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: #38bdf8;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  background: #7dd3fc;
+}
